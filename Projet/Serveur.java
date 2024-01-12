@@ -92,7 +92,10 @@ public class Serveur extends UnicastRemoteObject implements LifeGame {
     }
     public static void main(String arg[]) 
     {
-        int [][][] tab=new int[Integer.parseInt(arg[0])][Integer.parseInt(arg[0])][Integer.parseInt(arg[0])];
+      int arg0=Integer.parseInt(arg[0])+2;
+
+      int arg2=Integer.parseInt(arg[2]);
+        int [][][] tab=new int[arg0][arg0][arg0];
     // int [][][] tab2=new int[32][32][32];
         for(int i=0;i<tab.length;i++)
         for(int j=0;j<tab[i].length;j++)
@@ -104,11 +107,12 @@ public class Serveur extends UnicastRemoteObject implements LifeGame {
             tab[i][j][k]=0;
             }
         BagOfTask bof=new BagOfTask(tab);
-        bof.diviser(Integer.parseInt(arg[1]));
+         int arg1= (int)Math.pow(arg0,3)/Integer.parseInt(arg[1]);
+        bof.diviser(arg1);
         
         try 
         {
-            Serveur s = new Serveur(bof,tab,Integer.parseInt(arg[1]),Integer.parseInt(arg[2]));
+            Serveur s = new Serveur(bof,tab,arg0,arg2);
           //  s.affiche();
             s.start=System.currentTimeMillis();
             Registry r= LocateRegistry.createRegistry(1099);

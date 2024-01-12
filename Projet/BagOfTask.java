@@ -117,7 +117,7 @@ public class BagOfTask
        {
         //   System.out.print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         t =Tasks.get(suivant);
-       // t.Afficher();
+        //t.Afficher();
         this.Tasks.remove(suivant);
         this.suivant++;
        }
